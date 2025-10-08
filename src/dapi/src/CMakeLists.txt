@@ -71,10 +71,6 @@ elseif (WIN32)
 elseif (UNIX)
   if (APPLE)
     list(APPEND DAPI_LINK_LIBS portaudio "-framework CoreAudio" "-framework AudioToolbox")
-  else()
-    # Assume that non-Apple machines are Linux.
-    list(APPEND DAPI_LINK_LIBS pulse-simple pulse)
-    list(APPEND DAPI_DEFINES USE_PULSEAUDIO)
   endif()
 
   list(APPEND DAPI_SOURCE_FILES nt/linux_audio.c api/init.c osf/loadable.c osf/dtmmio.c)
